@@ -25,6 +25,7 @@ func NewClient(apiKey string) *client {
 func (c *client) Send(notification fcm.Notification, data fcm.Data, regIds ...string) (fcm.Response, error) {
 	msg := map[string]interface{}{
 		"registration_ids": regIds,
+		"notification":     notification.ToMap(),
 		"data":             data,
 	}
 	body, err := json.Marshal(msg)

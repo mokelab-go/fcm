@@ -12,8 +12,13 @@ const (
 
 func Test_Send(t *testing.T) {
 	client := NewClient(test_api_key)
-	notification := fcm.Notification{}
-	data := fcm.Data{}
+	notification := fcm.Notification{
+		Title: "test",
+		Body:  "hello",
+	}
+	data := fcm.Data{
+		"name": "moke",
+	}
 	_, err := client.Send(notification, data, test_reg_id)
 	if err != nil {
 		t.Errorf("Failed to send FCM message : %s", err)
