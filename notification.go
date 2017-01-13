@@ -1,5 +1,6 @@
 package fcm
 
+// Notification is a "notification" section in FCM message
 type Notification struct {
 	Title       string
 	Body        string
@@ -11,6 +12,7 @@ type Notification struct {
 	ClickAction string
 }
 
+// ToMap coverts to map[string]interface{}
 func (n *Notification) ToMap() map[string]interface{} {
 	m := map[string]interface{}{}
 	if len(n.Title) > 0 {

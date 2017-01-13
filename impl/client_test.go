@@ -6,12 +6,12 @@ import (
 )
 
 const (
-	test_api_key = "INPUT_YOUR_API_KEY"
-	test_reg_id  = "INPUT_YOUR_REG_ID"
+	testAPIKey = "INPUT_YOUR_API_KEY"
+	testRegID  = "INPUT_YOUR_REG_ID"
 )
 
 func Test_Send(t *testing.T) {
-	client := NewClient(test_api_key)
+	client := NewClient(testAPIKey)
 	notification := fcm.Notification{
 		Title: "test",
 		Body:  "hello",
@@ -19,7 +19,7 @@ func Test_Send(t *testing.T) {
 	data := fcm.Data{
 		"name": "moke",
 	}
-	_, err := client.Send(notification, data, test_reg_id)
+	_, err := client.Send(notification, data, testRegID)
 	if err != nil {
 		t.Errorf("Failed to send FCM message : %s", err)
 	}

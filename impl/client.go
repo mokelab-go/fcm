@@ -9,14 +9,15 @@ import (
 )
 
 const (
-	fcm_url = "https://fcm.googleapis.com/fcm/send"
+	fcmURL = "https://fcm.googleapis.com/fcm/send"
 )
 
 type client struct {
 	apiKey string
 }
 
-func NewClient(apiKey string) *client {
+// NewClient creates fcm.Client
+func NewClient(apiKey string) fcm.Client {
 	return &client{
 		apiKey: apiKey,
 	}
@@ -32,7 +33,7 @@ func (c *client) Send(notification fcm.Notification, data fcm.Data, regIds ...st
 	if err != nil {
 		return fcm.Response{}, err
 	}
-	req, err := http.NewRequest("POST", fcm_url, bytes.NewBuffer(body))
+	req, err := http.NewRequest("POST", fcmURL, bytes.NewBuffer(body))
 	if err != nil {
 		return fcm.Response{}, err
 	}
