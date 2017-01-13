@@ -17,3 +17,6 @@ type Notification struct {
 }
 
 type Data map[string]interface{}
+
+type Response struct {
+}
