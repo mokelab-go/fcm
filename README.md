@@ -23,7 +23,7 @@ const (
 )
 
 func main() {
-	client := NewClient(apiKey)
+	client := fcm.NewClient(apiKey)
 	notification := fcm.Notification{
 		Title: "test",
 		Body:  "hello",
